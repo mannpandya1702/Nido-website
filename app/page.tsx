@@ -4,6 +4,7 @@ import { Marquee } from "@/components/Marquee";
 import { Story } from "@/components/Story";
 import { Experience } from "@/components/Experience";
 import { Signatures } from "@/components/Signatures";
+import { SignBand } from "@/components/SignBand";
 import { Menu } from "@/components/Menu";
 import { Gallery } from "@/components/Gallery";
 import { Visit } from "@/components/Visit";
@@ -19,6 +20,7 @@ export default function Home() {
         <Story />
         <Experience />
         <Signatures />
+        <SignBand />
         <Menu />
         <Gallery />
         <Visit />

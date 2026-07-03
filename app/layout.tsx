@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Jost } from "next/font/google";
+import { Fraunces, Jost, Caveat } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { Intro } from "@/components/Intro";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -14,6 +16,13 @@ const jost = Jost({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-jost",
+  display: "swap",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-caveat",
   display: "swap",
 });
 
@@ -64,8 +73,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${jost.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${jost.variable} ${caveat.variable}`}
+    >
+      <body>
+        <Intro />
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

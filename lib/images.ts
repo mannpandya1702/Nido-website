@@ -9,6 +9,16 @@ export function img(id: string, w = 1400, q = 80): string {
   return `${BASE}${id}?auto=format&fit=crop&w=${w}&q=${q}`;
 }
 
+/** Real NIDO photography, served locally from /public/photos. */
+export const real = {
+  rooftop: "/photos/rooftop.jpg", // the actual rooftop terrace at dusk
+  sign: "/photos/sign.jpg", // illuminated nido sign
+  interior: "/photos/interior.jpg", // dark cozy reading room
+  pasta: "/photos/pasta.jpg", // pink-sauce penne + garlic bread
+  cupRecord: "/photos/cup-record.jpg", // "find your corner" cup label
+  cupLogo: "/photos/cup-logo.jpg", // round nido badge cup
+} as const;
+
 export const photos = {
   // Ambiance / the space
   rooftopTerrace: "1559339352-11d035aa65de", // open-air pergola terrace at dusk

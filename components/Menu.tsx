@@ -5,13 +5,15 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Leaf } from "lucide-react";
 import { menu } from "@/lib/menu";
-import { img } from "@/lib/images";
+import { img, real } from "@/lib/images";
 import { clsx } from "@/lib/clsx";
 import { Reveal } from "./Reveal";
 
 export function Menu() {
   const [active, setActive] = useState(menu[0].id);
   const category = menu.find((c) => c.id === active) ?? menu[0];
+  const categorySrc =
+    category.id === "mains" ? real.pasta : img(category.photo, 1000);
 
   return (
     <section id="menu" className="bg-cream-100 py-24 sm:py-32">
@@ -43,13 +45,27 @@ export function Menu() {
               type="button"
               onClick={() => setActive(c.id)}
               className={clsx(
-                "rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ease-out-soft",
+                "relative rounded-full px-5 py-2.5 text-sm font-medium ring-1 transition-colors duration-300",
                 active === c.id
-                  ? "bg-olive-700 text-cream-50 shadow-soft"
-                  : "border border-olive-900/12 bg-cream-50 text-olive-800/80 hover:border-olive-700/40 hover:text-olive-900",
+                  ? "ring-transparent"
+                  : "bg-cream-50 ring-olive-900/12 hover:ring-olive-700/40",
               )}
             >
-              {c.title}
+              {active === c.id && (
+                <motion.span
+                  layoutId="menuTabPill"
+                  className="absolute inset-0 rounded-full bg-olive-700 shadow-soft"
+                  transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                />
+              )}
+              <span
+                className={clsx(
+                  "relative z-10",
+                  active === c.id ? "text-cream-50" : "text-olive-800/80",
+                )}
+              >
+                {c.title}
+              </span>
             </button>
           ))}
         </div>
@@ -68,7 +84,7 @@ export function Menu() {
               {/* Image side */}
               <div className="relative min-h-[260px] overflow-hidden lg:min-h-full">
                 <Image
-                  src={img(category.photo, 1000)}
+                  src={categorySrc}
                   alt={category.title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"

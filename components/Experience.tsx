@@ -1,32 +1,37 @@
 import Image from "next/image";
 import { Reveal, RevealGroup } from "./Reveal";
-import { img, photos } from "@/lib/images";
+import { CoffeeBeans } from "./CoffeeBeans";
+import { img, photos, real } from "@/lib/images";
 
 const pillars = [
   {
     tag: "01",
     title: "Coffee",
-    photo: photos.pourOver,
+    src: img(photos.pourOver, 800),
     copy: "From an honest espresso to our signature Biscoff latte — beans pulled with care and poured slow, the way mornings should be.",
   },
   {
     tag: "02",
     title: "Food",
-    photo: photos.pasta,
-    copy: "Wood-fired pizzas, comforting pastas, mezze platters and hearty plates. Honest, generous food made to be shared over a long table.",
+    src: real.pasta,
+    copy: "Comforting pastas, wood-fired pizzas, mezze platters and hearty plates. Honest, generous food made to be shared over a long table.",
   },
   {
     tag: "03",
     title: "Conversations",
-    photo: photos.peopleCheers,
+    src: img(photos.peopleCheers, 800),
     copy: "The real house special. Golden-hour light, unhurried hours and the people you want to stay close to — that's the heart of NIDO.",
   },
 ];
 
 export function Experience() {
   return (
-    <section id="experience" className="bg-olive-900 py-24 text-cream-50 sm:py-32">
-      <div className="container-nido">
+    <section
+      id="experience"
+      className="relative overflow-hidden bg-olive-900 py-24 text-cream-50 sm:py-32"
+    >
+      <CoffeeBeans count={9} color="text-espresso-800/70" />
+      <div className="container-nido relative">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow text-olive-200">Coffee · Food · Conversations</p>
@@ -44,7 +49,7 @@ export function Experience() {
               <article className="group h-full overflow-hidden rounded-[1.75rem] bg-olive-800/50 ring-1 ring-cream-50/10 transition-all duration-500 ease-out-soft hover:-translate-y-1.5 hover:bg-olive-800 hover:shadow-lift">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src={img(p.photo, 800)}
+                    src={p.src}
                     alt={`${p.title} at NIDO`}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"

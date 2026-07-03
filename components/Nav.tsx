@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useLenis } from "lenis/react";
 import { Menu, X } from "lucide-react";
 import { Wordmark } from "./Logo";
 import { clsx } from "@/lib/clsx";
@@ -17,6 +18,15 @@ const links = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const lenis = useLenis();
+
+  const go = (e: React.MouseEvent, href: string) => {
+    setOpen(false);
+    if (lenis && href.startsWith("#")) {
+      e.preventDefault();
+      lenis.scrollTo(href, { offset: -72, duration: 1.2 });
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -44,6 +54,7 @@ export function Nav() {
       <nav className="container-nido flex h-[var(--header-h)] items-center justify-between">
         <a
           href="#top"
+          onClick={(e) => go(e, "#top")}
           className={clsx(
             "text-2xl transition-colors duration-500",
             scrolled ? "text-olive-800" : "text-cream-50",
@@ -58,6 +69,7 @@ export function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
+                onClick={(e) => go(e, l.href)}
                 className={clsx(
                   "link-underline text-sm font-medium transition-colors duration-500",
                   scrolled
@@ -74,6 +86,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <a
             href="#visit"
+            onClick={(e) => go(e, "#visit")}
             className={clsx(
               "hidden md:inline-flex",
               scrolled ? "btn-primary" : "btn-cream",
@@ -138,7 +151,7 @@ export function Nav() {
                   >
                     <a
                       href={l.href}
-                      onClick={() => setOpen(false)}
+                      onClick={(e) => go(e, l.href)}
                       className="block border-b border-cream-50/10 py-4 font-display text-3xl text-cream-50"
                     >
                       {l.label}
@@ -149,7 +162,7 @@ export function Nav() {
 
               <a
                 href="#visit"
-                onClick={() => setOpen(false)}
+                onClick={(e) => go(e, "#visit")}
                 className="btn-cream mt-auto w-full"
               >
                 Find your corner

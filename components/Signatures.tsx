@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { TiltCard } from "./TiltCard";
 import { signatures } from "@/lib/menu";
 import { img } from "@/lib/images";
 
@@ -34,6 +35,7 @@ export function Signatures() {
               delay={i * 0.06}
               className="w-[76vw] shrink-0 snap-start sm:w-[46vw] lg:w-auto"
             >
+              <TiltCard className="h-full">
               <article className="group h-full overflow-hidden rounded-[1.5rem] border border-olive-900/10 bg-cream-100 transition-all duration-500 ease-out-soft hover:-translate-y-1.5 hover:shadow-card">
                 <div className="relative aspect-[3/4] overflow-hidden">
                   <Image
@@ -52,6 +54,7 @@ export function Signatures() {
                   {s.note}
                 </p>
               </article>
+              </TiltCard>
             </Reveal>
           ))}
         </div>

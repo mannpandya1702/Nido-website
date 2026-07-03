@@ -1,33 +1,34 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { Bird } from "./Logo";
-import { img, photos } from "@/lib/images";
+import { real } from "@/lib/images";
 
 export function Story() {
   return (
-    <section id="story" className="relative bg-cream-50 py-24 sm:py-32">
+    <section id="story" className="relative overflow-hidden bg-cream-50 py-24 sm:py-32">
       <div className="container-nido">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           {/* Images */}
           <Reveal className="order-2 lg:order-1">
             <div className="relative">
-              <div className="duotone-olive relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-card">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-card">
                 <Image
-                  src={img(photos.windowTable, 1100)}
-                  alt="A quiet window corner inside NIDO"
+                  src={real.interior}
+                  alt="A quiet, plant-filled reading corner inside NIDO"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="warm-tone object-cover"
+                  className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-olive-950/25 to-transparent" />
               </div>
               <div className="absolute -bottom-8 -right-4 hidden w-40 overflow-hidden rounded-2xl border-4 border-cream-50 shadow-lift sm:block sm:w-52">
-                <div className="relative aspect-square">
+                <div className="relative aspect-[3/4]">
                   <Image
-                    src={img(photos.cappuccino, 600)}
-                    alt="A cappuccino poured with a leaf on top"
+                    src={real.cupLogo}
+                    alt="A NIDO iced coffee with the round nido badge"
                     fill
                     sizes="220px"
-                    className="warm-tone object-cover"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -68,7 +69,10 @@ export function Story() {
             <Reveal delay={0.2}>
               <figure className="mt-10 border-l-2 border-olive-600/40 pl-6">
                 <blockquote className="font-display text-2xl italic leading-snug text-olive-800">
-                  “Every cup has a story. Tell yours.”
+                  Every cup has a story.{" "}
+                  <span className="font-script not-italic text-clay">
+                    Tell yours.
+                  </span>
                 </blockquote>
               </figure>
             </Reveal>
