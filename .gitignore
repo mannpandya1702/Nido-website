@@ -18,3 +18,7 @@ out/
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# Vercel
+.vercel
+.env*
