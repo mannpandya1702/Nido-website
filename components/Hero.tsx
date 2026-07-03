@@ -48,7 +48,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-olive-950/85 via-olive-950/15 to-olive-950/30" />
       <div className="absolute inset-0 bg-gradient-to-r from-olive-950/55 via-transparent to-transparent" />
       <div className="grain absolute inset-0" />
-      <CoffeeBeans count={11} color="text-espresso-800" />
+      <CoffeeBeans count={7} color="text-espresso-800" />
 
       {/* floating real "find your corner" cup */}
       <motion.figure

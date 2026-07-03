@@ -95,7 +95,7 @@ export function Visit() {
                 className="warm-tone object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-olive-950/60 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-cream-50/15 bg-olive-950/40 p-5 backdrop-blur-md">
+              <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-cream-50/15 bg-olive-950/70 p-5">
                 <p className="font-display text-xl italic text-cream-50">
                   “Stay a while.”
                 </p>

@@ -70,10 +70,15 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-8px)" },
         },
+        beanspin: {
+          "0%, 100%": { transform: "rotate(-12deg)" },
+          "50%": { transform: "rotate(12deg)" },
+        },
       },
       animation: {
         marquee: "marquee 34s linear infinite",
         floaty: "floaty 6s ease-in-out infinite",
+        beanspin: "beanspin 8s ease-in-out infinite",
       },
     },
   },

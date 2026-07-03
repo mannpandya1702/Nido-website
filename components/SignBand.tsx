@@ -37,7 +37,7 @@ export function SignBand() {
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-r from-olive-950/85 via-olive-950/45 to-olive-950/30" />
       <div className="absolute inset-0 bg-olive-950/25" />
-      <CoffeeBeans count={10} color="text-espresso-800" />
+      <CoffeeBeans count={6} color="text-espresso-800" />
 
       <div className="container-nido relative z-10">
         <motion.p

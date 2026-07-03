@@ -30,7 +30,7 @@ export function Experience() {
       id="experience"
       className="relative overflow-hidden bg-olive-900 py-24 text-cream-50 sm:py-32"
     >
-      <CoffeeBeans count={9} color="text-espresso-800/70" />
+      <CoffeeBeans count={5} color="text-espresso-800/70" />
       <div className="container-nido relative">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>

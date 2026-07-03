@@ -16,11 +16,13 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     <ReactLenis
       root
       options={{
-        lerp: 0.09,
-        duration: 1.15,
+        // snappier than the default so wheel scrolling feels responsive,
+        // not floaty/laggy on laptops
+        lerp: 0.16,
         smoothWheel: true,
         wheelMultiplier: 1,
-        touchMultiplier: 1.4,
+        touchMultiplier: 1.5,
+        syncTouch: false,
       }}
     >
       {children}

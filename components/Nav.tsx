@@ -47,7 +47,7 @@ export function Nav() {
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out-soft",
         scrolled
-          ? "border-b border-olive-900/10 bg-cream-50/80 backdrop-blur-md"
+          ? "border-b border-olive-900/10 bg-cream-50 shadow-[0_10px_30px_-24px_rgba(46,51,25,0.5)]"
           : "border-b border-transparent bg-transparent",
       )}
     >
