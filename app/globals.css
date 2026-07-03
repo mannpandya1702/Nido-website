@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 76px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-cream-50 text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    background: #5b6b3a;
+    color: #f6f1e6;
+  }
+
+  /* Section scroll offset so sticky nav doesn't cover headings */
+  section[id] {
+    scroll-margin-top: var(--header-h);
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer components {
+  .container-nido {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-eyebrow text-olive-600;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium
+           transition-all duration-300 ease-out-soft focus-visible:outline-none
+           focus-visible:ring-2 focus-visible:ring-olive-700 focus-visible:ring-offset-2
+           focus-visible:ring-offset-cream-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-olive-700 text-cream-50 hover:bg-olive-800 hover:-translate-y-0.5 hover:shadow-soft;
+  }
+
+  .btn-ghost {
+    @apply btn border border-olive-700/25 text-olive-800 hover:border-olive-700/60 hover:bg-olive-700/5;
+  }
+
+  .btn-cream {
+    @apply btn bg-cream-50 text-olive-800 hover:bg-white hover:-translate-y-0.5 hover:shadow-soft;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-olive-900/10;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-full
+           after:origin-right after:scale-x-0 after:bg-current after:transition-transform
+           after:duration-300 after:ease-out-soft hover:after:origin-left hover:after:scale-x-100;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Subtle paper grain overlay */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* Warm brand overlay to unify photography into the olive/cream palette */
+  .warm-tone {
+    filter: saturate(0.92) contrast(1.02);
+  }
+  .duotone-olive::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(46, 51, 25, 0.12) 0%,
+      rgba(46, 51, 25, 0.05) 40%,
+      rgba(91, 107, 58, 0.22) 100%
+    );
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
+  }
+}
